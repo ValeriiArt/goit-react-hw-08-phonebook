@@ -6,7 +6,7 @@ import ContactItem from "components/ContactItem";
 
 const ContactList = () => {
   const search = useSelector(state => state.contacts.filter);
-  const { data =[], isLoading } = useGetContactsQuery();
+  // const { data =[], isLoading } = useGetContactsQuery();
   
   const findContact = () => {
     const result = data && data.filter(contact =>

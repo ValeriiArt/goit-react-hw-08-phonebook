@@ -3,19 +3,19 @@
 // import s from './Filter.module.css'
 
 const Filter = () => {
-    const filterValue = useSelector(state => state.contacts.filter);
-    const dispatch = useDispatch();
-    const findContact = (e) => dispatch(getFilterContact(e.currentTarget.value));
+    // const filterValue = useSelector(state => state.contacts.filter);
+    // const dispatch = useDispatch();
+    // const findContact = (e) => dispatch(getFilterContact(e.currentTarget.value));
         
     return (
         <div>
             <label>
             Find contacts by name
                 <input
-                    className={s.formInput}
+                    // className={s.formInput}
                     type="text"
-                    value={filterValue}
-                    onChange={findContact}
+                    // value={filterValue}
+                    // onChange={findContact}
                 />
             </label>
         </div>
