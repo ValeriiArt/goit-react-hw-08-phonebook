@@ -24,7 +24,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Layout />} >
             <Route index element={<Home />} />
-            <Route path='/contacts' component={<Contacts/>} />
+            <Route path='/contacts' element={<Contacts/>} />
             <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<Login/>} />
             

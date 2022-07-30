@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom"
 import { authSelectors } from "redux/auth";
-import UserMenu from './UserMenu';
+import UserMenu from './UserMenu/UserMenu';
 import AuthNav from './AuthNav';
 
 const styles = {
