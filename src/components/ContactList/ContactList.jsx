@@ -22,7 +22,7 @@ const ContactList = () => {
   return (
       <ul>
       {/* {contacts && contacts.map(contact => */}
-        // <ContactItem key={contact.id} {...contact} />
+        {/* // <ContactItem key={contact.id} {...contact} /> */}
       {/* )}    */}
       </ul>
   )
