@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import operations from '../redux/auth/auth-operations'
+import operations from '../redux/auth/authApi'
 
 const styles = {
+    registerForm: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
   form: {
     width: 320,
   },
@@ -48,7 +52,7 @@ export default function Register() {
     };
         
     return (
-        <div>
+        <div style={styles.registerForm} >
             <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
                 <label style={styles.label}>
                     Name

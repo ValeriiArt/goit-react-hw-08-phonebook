@@ -1,5 +1,18 @@
-
+ul{
+    list-style: none;
+    padding: 0;
+}
+.contactList{
+    min-width: 320px;
+   
+    background: rgb(159, 209, 245);
+    padding: 25px;
+}
+.contactListTitle{
+    text-align: center;
+    text-decoration-line: underline;
+}
 .itemText{
     display: inline-block;
-    margin-right: 20px;
+    
 }

@@ -1,22 +1,23 @@
-// import PropTypes from 'prop-types';
-
+import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import {deleteContact} from '../../redux/contacts/contactsApi'
 import s from './ContactItem.module.css'
 
 
 
-const ContactItem = ({ id, name, number }) => {
+const ContactItem = ({id, name, number }) => {
   
-
-    // const handleDeleteContact = async (id) => {
-    //     await deleteContact(id).unwrap();
-    // }
+  const dispatch = useDispatch();
+    const handleDeleteContact = async (id) => {
+        await dispatch(deleteContact(id)).unwrap();
+    }
 
     return (
-        <li key={id}>
+        <li className={s.contactItem} >
             <p className={s.itemText}>{name}:</p>
             <p className={s.itemText}>{number}</p>
             <span className={s.delete}
-                // onClick={() => handleDeleteContact(id)}
+                onClick={() => handleDeleteContact(id)}
             >
                 &times;
             </span>
@@ -24,9 +25,9 @@ const ContactItem = ({ id, name, number }) => {
     );
 };
 
-// ContactItem.propTypes = {
-//     id: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     number: PropTypes.string.isRequired,
-// }
+ContactItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+}
 export default ContactItem;

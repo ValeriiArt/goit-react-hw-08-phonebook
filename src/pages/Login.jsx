@@ -3,8 +3,12 @@ import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
 const styles = {
+    loginForm: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
   form: {
-    width: 320,
+    width: 320,   
   },
   label: {
     display: 'flex',
@@ -36,14 +40,13 @@ export default function Login() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(dispatch(authOperations.logIn({email, password })))
         dispatch(authOperations.logIn({email, password }))
         setEmail('');
         setPassword('');
     };
         
     return (
-        <div>
+        <div style={styles.loginForm} >
             <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
                     <label style={styles.label}>
                 Email
@@ -58,7 +61,7 @@ export default function Login() {
                     <label style={styles.label}>
                 Password
                     <input
-                    type="pass"
+                    type="password"
                     name="password"
                     onChange={handleChange}
                     value={password}

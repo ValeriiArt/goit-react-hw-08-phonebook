@@ -1,12 +1,10 @@
 import { Outlet } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import { authSelectors } from "redux/auth";
-import Navigation from './Navigation';
-// import UserMenu from './UserMenu';
-// import AuthNav from './AuthNav';
+import Navigation from './Navigation/Navigation';
+import {NotificationContainer} from 'react-notifications';
 
 
 const styles = {
+
     header: {
         top: 0,
         left: 0,
@@ -35,7 +33,7 @@ const styles = {
 
 
 export default function Layout() {
-    // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+    
     return (
         <>
             <header style={styles.header}>
@@ -47,6 +45,7 @@ export default function Layout() {
                     <Outlet/>
                 </div>
             </main>
+            <NotificationContainer/>
         </>
     );
 }

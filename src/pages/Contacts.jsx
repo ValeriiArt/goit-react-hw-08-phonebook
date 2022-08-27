@@ -1,20 +1,30 @@
-// import ContactList from "components/ContactList";
+import ContactList from "components/ContactList";
 import ContactForm from "components/ContactsForm/ContactsForm";
-import Filter from "components/Filter";
 
 
-// import { useState } from 'react';
-// import { nanoid } from 'nanoid'
-// import s from './ContactForm.module.css'
+
+const styles = {
+  contactTitle: {
+    textAlign: 'center',
+    marginBottom: 25,
+  },
+  container: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    marginBottom: 15,
+  },
+};
 
 export default function Contacts() {
-
+  
   return (
-    <section>
-      <h1>Welcom to phonebook👻</h1>
-      <ContactForm />
-      {/* <ContactList /> */}
-      <Filter/>
-    </section>
+    <div>
+        <h1 style={styles.contactTitle}>Welcom to phonebook👻</h1>
+      <div style={styles.container}>
+        <ContactForm />
+        {/* {isLoadingContacts && <h2>Loading...</h2>} */}
+        <ContactList />
+      </div>
+    </div>
   )
 };

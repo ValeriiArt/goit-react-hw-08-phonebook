@@ -3,6 +3,9 @@ import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from './redux/auth';
 
+import 'react-notifications/lib/notifications.css';
+
+
 
 const Layout = lazy(() => import('./components/Layout'));
 const Home = lazy(() => import('./pages/Home'));
@@ -31,6 +34,7 @@ export function App() {
           </Route>
         </Routes>
       </Suspense>
+      
   )
 };
 

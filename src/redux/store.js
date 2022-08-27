@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER, } from 'redux-persist'
 import storage from "redux-persist/lib/storage";
-import contactReducer from './auth/auth-slice';
+import contactsSlice from './contacts/contacts-slice';
 import { authReducer } from './auth';
 
 const authPersistConfig = {
@@ -17,10 +17,16 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 }
+const persistedAuthReducer = persistReducer(
+  authPersistConfig,
+  authReducer
+);
+
+
 export const store = configureStore({
     reducer: {
-        auth: persistReducer(authPersistConfig, authReducer),
-        contacts: contactReducer,
+        auth: persistedAuthReducer,
+        contacts: contactsSlice,
     },
     middleware: getDefaultMiddleware => 
       getDefaultMiddleware({

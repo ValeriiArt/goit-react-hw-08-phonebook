@@ -13,7 +13,6 @@ const token = {
 };
 
 
-
 const register = createAsyncThunk('auth/register', async credentials => {
     try {
         const { data } = await axios.post('/users/signup', credentials);
@@ -24,10 +23,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
     }
 });
 
-
 //  POST @ /users/login
-
-
 const logIn = createAsyncThunk('auth/login', async credentials => {
     try {
         const { data } = await axios.post('/users/login', credentials);
@@ -39,7 +35,6 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
 });
 
 //  POST @ /users/logOut
-
 const logOut = createAsyncThunk('auth/logout', async credentials => {
     try {
         const { data } = await axios.post('/users/logout', credentials);

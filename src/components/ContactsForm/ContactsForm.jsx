@@ -1,5 +1,10 @@
 import { useState } from 'react';
-// import { nanoid } from 'nanoid'
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/contacts/contactsApi';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
+import {NotificationManager} from 'react-notifications';
+
+
 
 const styles = {
   form: {
@@ -13,8 +18,13 @@ const styles = {
 };
 
 export default function ContactForm() {
+  const { getContacts } = contactsSelectors;
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts)
+ 
 
   const handleChange= e => {
     const { name, value } = e.currentTarget;  
@@ -29,16 +39,19 @@ export default function ContactForm() {
         return;
     }; 
   };
-  
-  const handleAddNewContact = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase()) 
+      ? NotificationManager.info(`${name} вже є у ваших контактах`)
+      : dispatch(addContact({name, number}));
       setName('');
       setNumber('');
   };
 
   return (
     <div>
-      <form onSubmit={handleAddNewContact} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
         Name
             <input
