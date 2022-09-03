@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from './redux/auth';
-import PrivateRoute from 'components/PrivateRoute';
-import PublicRoute from 'components/PublicRoute';
+import {PrivateRoute} from 'components/PrivateRoute';
+import {PublicRoute} from 'components/PublicRoute';
 
 
 import 'react-notifications/lib/notifications.css';

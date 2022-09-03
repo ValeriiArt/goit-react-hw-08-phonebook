@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router";
 import { authSelectors } from "redux/auth";
 
 
-const PublicRoute = ({children}) => {
+export const PublicRoute = ({children}) => {
   
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
@@ -12,4 +12,3 @@ const PublicRoute = ({children}) => {
 
 };
 
-export default PublicRoute;
