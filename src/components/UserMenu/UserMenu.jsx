@@ -1,14 +1,10 @@
+import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
 import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-
-const styles = {
-    userLoginInfo: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-    },
-}
 
 export default function UserMenu() {
     const dispatch = useDispatch();
@@ -18,14 +14,16 @@ export default function UserMenu() {
 
 
     return (
-        <div style={styles.userLoginInfo}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
             <span>Welcome, {name}</span>
-            <button type="button" onClick={() => {
-                dispatch(authOperations.logOut());
-                navigate('/');
-            }}>
-                Sing Out
-            </button>
-        </div>
+            <Button
+                variant="outlined"
+                type="button" onClick={() => {
+                    dispatch(authOperations.logOut());
+                    navigate('/');
+                }}>
+                Sing Out             
+            </Button>
+        </Stack>
     )
 }

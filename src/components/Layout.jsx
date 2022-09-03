@@ -38,7 +38,6 @@ export default function Layout() {
         <>
             <header style={styles.header}>
                 <Navigation />
-                {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
             </header>
             <main>
                 <div style={styles.container}>
