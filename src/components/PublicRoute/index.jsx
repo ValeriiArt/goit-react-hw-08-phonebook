@@ -3,12 +3,12 @@ import { Navigate, Outlet } from "react-router";
 import { authSelectors } from "redux/auth";
 
 
-const PublicRoute = () => {
+const PublicRoute = ({children}) => {
   
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
 
-    return isLoggedIn ? <Navigate to='/contacts'/> : <Outlet/>;
+    return isLoggedIn ? <Navigate to='/contacts' replace/> : <Outlet/>;
 
 };
 

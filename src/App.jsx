@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from './redux/auth';
-import PrivateRoutes from 'components/PrivateRoutes';
-import PublicRoute from 'components/PrivateRoutes';
+import PrivateRoute from 'components/PrivateRoute';
+import PublicRoute from 'components/PublicRoute';
 
 
 import 'react-notifications/lib/notifications.css';
@@ -19,7 +19,7 @@ const Login = lazy(()=> import('./pages/Login'));
 
 
 export function App() {
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -29,37 +29,17 @@ export function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Layout />} >
-          <Route index element={<Home />} />
-          {/* <Route path="/register" element={<Register />} /> */}
-          {/* <Route path="/login" element={ <Login />} /> */}
-          {/* <Route path="/contacts" element={<Contacts />}/> */}
-          
-          <Route path="/" element={<PublicRoute />} >
-            <Route path="/register" element={<Register/>} />
-            <Route path="/login" element={<Login />} />
-          </Route>
-          <Route path="/" element={<PrivateRoutes />} >
-            <Route path="/contacts" element={<Contacts/>} />
-          </Route>
-          {/* <Route path="/register" element={
-            <PublicRoute>
-              <Register/>
-            </PublicRoute>}
-          /> */}
-          {/* <Route path="/login" element={
-            <PublicRoute>
-              <Login />
-            </PublicRoute>
-          } /> */}
-          {/* <Route path='/contacts' element={
-            <PrivateRoutes>
-              <Contacts />
-            </PrivateRoutes>
-          }/>                    */}
+            <Route index element={<Home />} />
+            <Route path="/" element={<PublicRoute />} >
+              <Route path="/register" element={<Register/>} />
+              <Route path="/login" element={<Login />} />
+            </Route>
+            <Route element={<PrivateRoute />} >
+              <Route path="/contacts" element={<Contacts/>} />
+            </Route>
           </Route>
         </Routes>
-      </Suspense>
-      
+      </Suspense> 
   )
 };
 
